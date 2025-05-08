@@ -27,9 +27,10 @@ public class Pagamento {
 
 	}
 
-	public Pagamento(Long id, Instant momento) {
+	public Pagamento(Pedido pedido) {
 		this.id = id;
-		this.momento = momento;
+	    this.momento = Instant.now(); // preenchido automaticamente
+	    this.pedido = pedido;         // preenchido com o objeto do pedido
 	}
 
 	public Long getId() {
@@ -46,6 +47,14 @@ public class Pagamento {
 
 	public void setMomento(Instant momento) {
 		this.momento = momento;
+	}
+
+	public Pedido getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
 	}
 
 }
